@@ -12,7 +12,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
-
+'Kapselt eine Property Get, die ein Object zurückliefert.
 Private m_Obj As Object
 Private m_PropName As String
 
