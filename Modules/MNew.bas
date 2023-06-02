@@ -62,3 +62,14 @@ End Function
 Public Function FuncOfString(Obj As Object, ByVal FuncName As String) As FuncOfString
     Set FuncOfString = New FuncOfString: FuncOfString.New_ Obj, FuncName
 End Function
+
+Public Function PropGet(Obj As Object, ByVal PropName As String, Optional propisobj As Boolean = False) As PropGet
+    Set PropGet = New PropGet: PropGet.New_ Obj, PropName, propisobj
+End Function
+Public Function PropLet(Obj As Object, ByVal PropName As String) As PropLet
+    Set PropLet = New PropLet: PropLet.New_ Obj, PropName
+End Function
+Public Function PropSet(Obj As Object, ByVal PropName As String) As PropSet
+    Set PropSet = New PropSet: PropSet.New_ Obj, PropName
+End Function
+

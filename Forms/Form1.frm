@@ -4,11 +4,35 @@ Begin VB.Form FMain
    ClientHeight    =   3015
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   4560
+   ClientWidth     =   5895
    LinkTopic       =   "Form1"
    ScaleHeight     =   3015
-   ScaleWidth      =   4560
+   ScaleWidth      =   5895
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.CommandButton Command10 
+      Caption         =   "Command10"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   10
+      Top             =   1080
+      Width           =   1455
+   End
+   Begin VB.CommandButton Command9 
+      Caption         =   "Command9"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   9
+      Top             =   600
+      Width           =   1455
+   End
+   Begin VB.CommandButton Command8 
+      Caption         =   "Command8"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   8
+      Top             =   120
+      Width           =   1455
+   End
    Begin VB.CommandButton Command7 
       Caption         =   "Command7"
       Height          =   375
@@ -82,6 +106,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private mTester As TesterFuncAction
+
 
 Private Sub Form_Load()
     Me.Caption = App.EXEName & " " & App.Major & "." & App.Minor & "." & App.Revision
@@ -177,4 +202,28 @@ Private Sub Command7_Click()
     
 End Sub
 
+
+
+Private Sub Command8_Click()
+    Dim pl As PropLet: Set pl = MNew.PropLet(mTester, "PropValue")
+    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "PropValue")
+    pl.Invoke = 123456789
+    Dim v: v = pg.Invoke
+    MsgBox v
+End Sub
+Private Sub Command9_Click()
+    Dim pl As PropLet: Set pl = MNew.PropLet(mTester, "PropValue")
+    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "PropValue")
+    pl.Invoke = 12345.67890123
+    Dim v: v = pg.Invoke
+    MsgBox v
+End Sub
+Private Sub Command10_Click()
+    Dim col0 As New Collection: col0.Add 123: col0.Add 456: col0.Add 789
+    Dim ps As PropSet: Set ps = MNew.PropSet(mTester, "PropValue")
+    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "PropValue", True)
+    Set ps.Invoke = col0
+    Dim col1 As Collection: Set col1 = pg.Invoke
+    MsgBox col1.Item(1)
+End Sub
 
