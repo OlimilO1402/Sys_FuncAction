@@ -7,7 +7,6 @@
 [![Follow](https://img.shields.io/github/followers/OlimilO1402.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/OlimilO1402/Sys_FuncAction/watchers)
 
 Project started around Okt.2012  
-  
+Delegate classes for Sub, Function, and Property Get/Let/Set  
 
-
-![<AppName> Image](Resources/<AppName>.png "<AppName> Image")
+![SysFuncAction Image](Resources/SysFuncAction.png "SysFuncAction Image")
