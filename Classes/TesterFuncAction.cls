@@ -12,7 +12,8 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
-Private m_PropValue As Variant
+Private m_Value As Variant
+Private m_List  As Collection
 
 Public Sub TestAction()
     MsgBox "Hi from " & TypeName(Me) & ".TestAction"
@@ -81,17 +82,17 @@ Public Function TestFunc7(ByVal Value1 As Byte, ByVal Value2 As Integer, ByVal V
 End Function
 
 
-Public Property Get PropValue() As Variant
-    If IsObject(m_PropValue) Then
-        Set PropValue = m_PropValue
-    Else
-        PropValue = m_PropValue
-    End If
+Public Property Get MyValue() As Variant
+    MyValue = m_Value
 End Property
-Public Property Let PropValue(ByVal Value As Variant)
-    m_PropValue = Value
+Public Property Let MyValue(ByVal Value As Variant)
+    m_Value = Value
 End Property
-Public Property Set PropValue(ByVal Value As Variant)
-    Set m_PropValue = Value
+
+Public Property Get List() As Collection
+    Set List = m_List
+End Property
+Public Property Set List(ByVal Value As Collection)
+    Set m_List = Value
 End Property
 

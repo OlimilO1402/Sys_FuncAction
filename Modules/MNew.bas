@@ -63,9 +63,13 @@ Public Function FuncOfString(Obj As Object, ByVal FuncName As String) As FuncOfS
     Set FuncOfString = New FuncOfString: FuncOfString.New_ Obj, FuncName
 End Function
 
-Public Function PropGet(Obj As Object, ByVal PropName As String, Optional propisobj As Boolean = False) As PropGet
-    Set PropGet = New PropGet: PropGet.New_ Obj, PropName, propisobj
+Public Function PropGet(Obj As Object, ByVal PropName As String) As PropGet
+    Set PropGet = New PropGet: PropGet.New_ Obj, PropName
 End Function
+Public Function PropGetObj(Obj As Object, ByVal PropName As String) As PropGetObj
+    Set PropGetObj = New PropGetObj: PropGetObj.New_ Obj, PropName
+End Function
+
 Public Function PropLet(Obj As Object, ByVal PropName As String) As PropLet
     Set PropLet = New PropLet: PropLet.New_ Obj, PropName
 End Function

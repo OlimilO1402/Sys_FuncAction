@@ -1,101 +1,101 @@
 VERSION 5.00
 Begin VB.Form FMain 
    Caption         =   "Form1"
-   ClientHeight    =   3015
+   ClientHeight    =   2055
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   5895
+   ClientWidth     =   7695
    LinkTopic       =   "Form1"
-   ScaleHeight     =   3015
-   ScaleWidth      =   5895
+   ScaleHeight     =   2055
+   ScaleWidth      =   7695
    StartUpPosition =   3  'Windows-Standard
    Begin VB.CommandButton Command10 
-      Caption         =   "Command10"
+      Caption         =   "Test Prop Set+Get: Object"
       Height          =   375
-      Left            =   3480
+      Left            =   5160
       TabIndex        =   10
       Top             =   1080
-      Width           =   1455
+      Width           =   2415
    End
    Begin VB.CommandButton Command9 
-      Caption         =   "Command9"
+      Caption         =   "Test Prop Let+Get: Double"
       Height          =   375
-      Left            =   3480
+      Left            =   5160
       TabIndex        =   9
       Top             =   600
-      Width           =   1455
+      Width           =   2415
    End
    Begin VB.CommandButton Command8 
-      Caption         =   "Command8"
+      Caption         =   "Test Prop Let+Get: Long"
       Height          =   375
-      Left            =   3480
+      Left            =   5160
       TabIndex        =   8
       Top             =   120
-      Width           =   1455
+      Width           =   2415
    End
    Begin VB.CommandButton Command7 
-      Caption         =   "Command7"
+      Caption         =   "Test Func+Action: 7 Params"
       Height          =   375
-      Left            =   1800
+      Left            =   2640
       TabIndex        =   7
       Top             =   1560
-      Width           =   1455
+      Width           =   2415
    End
    Begin VB.CommandButton Command6 
-      Caption         =   "Command6"
+      Caption         =   "Test Func+Action: 6 Params"
       Height          =   375
-      Left            =   1800
+      Left            =   2640
       TabIndex        =   6
       Top             =   1080
-      Width           =   1455
+      Width           =   2415
    End
    Begin VB.CommandButton Command5 
-      Caption         =   "Command5"
+      Caption         =   "Test Func+Action: 5 Params"
       Height          =   375
-      Left            =   1800
+      Left            =   2640
       TabIndex        =   5
       Top             =   600
-      Width           =   1455
+      Width           =   2415
    End
    Begin VB.CommandButton Command4 
-      Caption         =   "Command4"
+      Caption         =   "Test Func+Action: 4 Params"
       Height          =   375
-      Left            =   1800
+      Left            =   2640
       TabIndex        =   4
       Top             =   120
-      Width           =   1455
+      Width           =   2415
    End
    Begin VB.CommandButton Command0 
-      Caption         =   "Command0"
-      Height          =   375
-      Left            =   120
-      TabIndex        =   3
-      Top             =   120
-      Width           =   1455
-   End
-   Begin VB.CommandButton Command3 
-      Caption         =   "Command3"
-      Height          =   375
-      Left            =   120
-      TabIndex        =   2
-      Top             =   1560
-      Width           =   1455
-   End
-   Begin VB.CommandButton Command2 
-      Caption         =   "Command2"
-      Height          =   375
-      Left            =   120
-      TabIndex        =   1
-      Top             =   1080
-      Width           =   1455
-   End
-   Begin VB.CommandButton Command1 
-      Caption         =   "Command1"
+      Caption         =   "Test Func+Action: 0 Params"
       Height          =   375
       Left            =   120
       TabIndex        =   0
+      Top             =   120
+      Width           =   2415
+   End
+   Begin VB.CommandButton Command3 
+      Caption         =   "Test Func+Action: 3 Params"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   3
+      Top             =   1560
+      Width           =   2415
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "Test Func+Action: 2 Params"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   2
+      Top             =   1080
+      Width           =   2415
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Test Func+Action: 1 Param"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   1
       Top             =   600
-      Width           =   1455
+      Width           =   2415
    End
 End
 Attribute VB_Name = "FMain"
@@ -205,25 +205,25 @@ End Sub
 
 
 Private Sub Command8_Click()
-    Dim pl As PropLet: Set pl = MNew.PropLet(mTester, "PropValue")
-    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "PropValue")
+    Dim pl As PropLet: Set pl = MNew.PropLet(mTester, "MyValue")
+    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "MyValue")
     pl.Invoke = 123456789
-    Dim v: v = pg.Invoke
+    Dim v As Long: v = pg.Invoke
     MsgBox v
 End Sub
 Private Sub Command9_Click()
-    Dim pl As PropLet: Set pl = MNew.PropLet(mTester, "PropValue")
-    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "PropValue")
+    Dim pl As PropLet: Set pl = MNew.PropLet(mTester, "MyValue")
+    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "MyValue")
     pl.Invoke = 12345.67890123
-    Dim v: v = pg.Invoke
+    Dim v As Double: v = pg.Invoke
     MsgBox v
 End Sub
 Private Sub Command10_Click()
-    Dim col0 As New Collection: col0.Add 123: col0.Add 456: col0.Add 789
-    Dim ps As PropSet: Set ps = MNew.PropSet(mTester, "PropValue")
-    Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "PropValue", True)
+    Dim col0 As New Collection: col0.Add "eins": col0.Add "zwei": col0.Add "drei"
+    Dim ps As PropSet:    Set ps = MNew.PropSet(mTester, "List")
+    Dim pg As PropGetObj: Set pg = MNew.PropGetObj(mTester, "List")
     Set ps.Invoke = col0
     Dim col1 As Collection: Set col1 = pg.Invoke
-    MsgBox col1.Item(1)
+    MsgBox col1.Item(1) & " " & col1.Item(2) & " " & col1.Item(3)
 End Sub
 
