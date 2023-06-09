@@ -1,5 +1,5 @@
 # Sys_FuncAction  
-## classes Action, Func and PropGet/PropLet & PropGetObj/PropSet  
+## Delegate classes Action, Func and PropGet/PropLet & PropGetObj/PropSet  
 
 [![GitHub](https://img.shields.io/github/license/OlimilO1402/Sys_FuncAction?style=plastic)](https://github.com/OlimilO1402/Sys_FuncAction/blob/master/LICENSE) 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/OlimilO1402/Sys_FuncAction?style=plastic)](https://github.com/OlimilO1402/Sys_FuncAction/releases/latest)
