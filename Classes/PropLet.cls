@@ -19,6 +19,7 @@ Private m_PropName As String
 Friend Sub New_(Obj As Object, PropName As String)
     Set m_Obj = Obj: m_PropName = PropName
 End Sub
+'Copy to MNew
 'Public Function PropLet(Obj As Object, ByVal PropName As String) As PropLet
 '    Set PropLet = New PropLet: PropLet.New_ Obj, PropName
 'End Function
