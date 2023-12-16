@@ -12,6 +12,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
+Implements Func1
 'Kapselt eine Methode, die über einen einzelnen Parameter verfügt und keinen Wert zurückgibt.
 Private m_Obj As Object
 Private m_ActionName As String
@@ -26,3 +27,7 @@ End Sub
 Public Sub Invoke(Value)
     CallByName m_Obj, m_ActionName, VbCallType.VbMethod, Value
 End Sub
+
+Private Function Func1_Invoke(Value As Variant) As Variant
+    Me.Invoke Value
+End Function

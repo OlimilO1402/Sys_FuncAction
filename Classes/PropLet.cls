@@ -12,6 +12,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
+Implements Func1
 'Kapselt eine Property Let, die einen Wert übergibt und keinen zurückliefert.
 Private m_Obj As Object
 Private m_PropName As String
@@ -27,4 +28,8 @@ End Sub
 Public Property Let Invoke(Value)
     CallByName m_Obj, m_PropName, VbCallType.VbLet, Value
 End Property
+
+Private Function Func1_Invoke(Value As Variant) As Variant
+    Me.Invoke = Value
+End Function
 

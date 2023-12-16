@@ -9,6 +9,14 @@ Begin VB.Form FMain
    ScaleHeight     =   2055
    ScaleWidth      =   7695
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.CommandButton Command11 
+      Caption         =   "Test Prop As Func: 1 Param"
+      Height          =   375
+      Left            =   5160
+      TabIndex        =   11
+      Top             =   1560
+      Width           =   2415
+   End
    Begin VB.CommandButton Command10 
       Caption         =   "Test Prop Set+Get: Object"
       Height          =   375
@@ -106,7 +114,6 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private mTester As TesterFuncAction
-
 
 Private Sub Form_Load()
     Me.Caption = App.EXEName & " " & App.Major & "." & App.Minor & "." & App.Revision
@@ -211,6 +218,7 @@ Private Sub Command8_Click()
     Dim v As Long: v = pg.Invoke
     MsgBox v
 End Sub
+
 Private Sub Command9_Click()
     Dim pl As PropLet: Set pl = MNew.PropLet(mTester, "MyValue")
     Dim pg As PropGet: Set pg = MNew.PropGet(mTester, "MyValue")
@@ -218,6 +226,7 @@ Private Sub Command9_Click()
     Dim v As Double: v = pg.Invoke
     MsgBox v
 End Sub
+
 Private Sub Command10_Click()
     Dim col0 As New Collection: col0.Add "eins": col0.Add "zwei": col0.Add "drei"
     Dim ps As PropSet:    Set ps = MNew.PropSet(mTester, "List")
@@ -226,4 +235,54 @@ Private Sub Command10_Click()
     Dim col1 As Collection: Set col1 = pg.Invoke
     MsgBox col1.Item(1) & " " & col1.Item(2) & " " & col1.Item(3)
 End Sub
+
+
+Private Sub Command11_Click()
+    
+    Dim f1 As Func1
+    Dim d As Double
+    Dim l  As Long
+        
+    Set f1 = MNew.PropLet(mTester, "MyValue")
+    Call f1.Invoke(12345.67890123)
+    MsgBox "Dim f1 As Func1 = New PropLet(testobj, 'MyValue')" & vbCrLf & _
+           "f1.Invoke(12345.67890123)"
+    
+    Set f1 = MNew.PropGet(mTester, "MyValue")
+    d = f1.Invoke(0)
+    MsgBox "Dim f1 As Func1 = New PropGet(testobj, 'MyValue')" & vbCrLf & _
+           "Dim d As Double = f1.Invoke()" & vbCrLf & _
+           "d = " & d
+
+    
+    Set f1 = MNew.PropLet(mTester, "MyValue")
+    Call f1.Invoke(123456789)
+    MsgBox "Dim f1 As Func1 = New PropLet(testobj, 'MyValue')" & vbCrLf & _
+           "f1.Invoke(123456789)"
+    
+    Set f1 = MNew.PropGet(mTester, "MyValue")
+    l = f1.Invoke(0)
+    MsgBox "Dim f1 As Func1 = New PropGet(testobj, 'MyValue')" & vbCrLf & _
+           "Dim l As Long = f1.Invoke()" & vbCrLf & _
+           "l = " & l
+    
+    Dim col0 As New Collection
+    Dim col1 As Collection
+    
+    col0.Add "eins": col0.Add "zwei": col0.Add "drei"
+    MsgBox "Dim col0 As Collection = ['eins', 'zwei', 'drei']"
+    
+    Set f1 = MNew.PropSet(mTester, "List")
+    Call f1.Invoke(col0)
+    MsgBox "Dim f1 As Func1 = New PropSet(testobj, 'List')" & _
+           "f1.Invoke(col0)"
+    
+    Set f1 = MNew.PropGetObj(mTester, "List")
+    Set col1 = f1.Invoke(0)
+    MsgBox "Dim f1 As Func1 = New PropGetObj(testobj, 'List')" & vbCrLf & _
+           "dim col1 As Collection = f1.Invoke()" & vbCrLf & _
+           "col1 = [" & col1.Item(1) & ", " & col1.Item(2) & ", " & col1.Item(3) & "]"
+        
+End Sub
+
 

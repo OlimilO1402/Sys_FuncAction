@@ -12,6 +12,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
+Implements Func1
 'Kapselt eine Property Get, die ein Object zurückliefert.
 Private m_Obj As Object
 Private m_PropName As String
@@ -27,5 +28,6 @@ Public Function Invoke()
     Set Invoke = CallByName(m_Obj, m_PropName, VbCallType.VbGet)
 End Function
 
-
-
+Private Function Func1_Invoke(Value As Variant) As Variant
+    Set Func1_Invoke = Me.Invoke
+End Function
