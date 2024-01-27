@@ -12,7 +12,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
-
+'Class Func1 a wrapper for CallByName, working as a delegate for a function with 1 argument and a return value
 Private m_Obj As Object
 Private m_FuncName As String
 

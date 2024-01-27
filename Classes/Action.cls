@@ -12,6 +12,8 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
+'Class Action a wrapper for CallByName, working as a delegate for a function (subroutine) without arguments and without a return value
+
 'Kapselt eine Methode, die über keine Parameter verfügt und keinen Wert zurückgibt.
 Private m_Obj As Object
 Private m_ActionName As String

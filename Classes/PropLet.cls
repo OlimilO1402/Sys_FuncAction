@@ -13,6 +13,7 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 Implements Func1
+'Class PropLet a wrapper for CallByName, working as a delegate for a Property Let
 'Kapselt eine Property Let, die einen Wert übergibt und keinen zurückliefert.
 Private m_Obj As Object
 Private m_PropName As String
