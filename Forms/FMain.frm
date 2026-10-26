@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin VB.Form FMain 
-   Caption         =   "Form1"
+   Caption         =   "FMain"
    ClientHeight    =   2055
    ClientLeft      =   120
    ClientTop       =   465
    ClientWidth     =   7695
-   Icon            =   "Form1.frx":0000
-   LinkTopic       =   "Form1"
+   Icon            =   "FMain.frx":0000
+   LinkTopic       =   "FMain"
    ScaleHeight     =   2055
    ScaleWidth      =   7695
    StartUpPosition =   3  'Windows-Standard
